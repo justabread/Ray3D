@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Materials/plastic.tres" type="Material" id=1]
+[ext_resource path="res://Meshes/flashlight.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Scripts/player.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.298041
+height = 0.5
+
+[sub_resource type="SpatialMaterial" id=2]
+emission_enabled = true
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 3.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.55, 0 )
+shape = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0 )
+current = true
+
+[node name="flashlight" type="MeshInstance" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.226451, -0.190175, -0.0496329 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 1 )
+material/1 = SubResource( 2 )
+
+[node name="SpotLight" type="SpotLight" parent="Camera/flashlight"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.00248551, 0.00506592, -0.224848 )
+light_color = Color( 0.894118, 0.733333, 0.501961, 1 )
+spot_angle = 36.5625
