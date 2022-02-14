@@ -38,6 +38,7 @@ func _input(event):
 
 	# Receives key input
 	if event is InputEventKey:
+		print(global_transform.origin)
 		match event.scancode:
 			KEY_W:
 				_w = event.pressed
