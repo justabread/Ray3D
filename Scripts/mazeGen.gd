@@ -24,6 +24,17 @@ func spawnPlayer(current_pos):
 	player.transform.origin = Map.map_to_world(current_pos.x, 0, current_pos.y)
 	add_child(player)
 	playerSpawned = true
+		
+func spawnEnemy(current_pos):
+	enemy = enemyScene.instance() as Spatial
+	
+	if(player != null):
+		enemy.player = player
+		enemy.gridMap = Map
+	
+	enemy.transform.origin = Map.map_to_world(current_pos.x, 0, current_pos.y)
+	add_child(enemy)
+	enemySpawned = true
 	
 func make_maze():
 #	var unvisited = []
@@ -71,4 +82,5 @@ func make_maze():
 		Map.set_cell_item(current_pos.x, 0, current_pos.y, 0)
 		if(!playerSpawned):
 			spawnPlayer(current_pos)
+	spawnEnemy(current_pos)
 
