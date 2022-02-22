@@ -13,8 +13,7 @@ var enemySpawned: bool = false
 var playerScene = load("res://Scenes/Player.tscn")
 var enemyScene = load("res://Scenes/Enemy.tscn")
 
-onready var Nav = $Navigation
-onready var Map = $Navigation/NavigationMeshInstance/GridMap as GridMap
+onready var Map = $GridMap as GridMap
 
 func _ready():
 	randomize()
@@ -25,12 +24,6 @@ func spawnPlayer(current_pos):
 	player.transform.origin = Map.map_to_world(current_pos.x, 0, current_pos.y)
 	add_child(player)
 	playerSpawned = true
-		
-func spawnEnemy(current_pos):
-	enemy = enemyScene.instance() as Position3D
-	enemy.transform.origin = Map.map_to_world(current_pos.x, 0, current_pos.y)
-	Nav.add_child(enemy)
-	enemySpawned = true
 	
 func make_maze():
 #	var unvisited = []
@@ -78,5 +71,4 @@ func make_maze():
 		Map.set_cell_item(current_pos.x, 0, current_pos.y, 0)
 		if(!playerSpawned):
 			spawnPlayer(current_pos)
-	spawnEnemy(current_pos)
 
