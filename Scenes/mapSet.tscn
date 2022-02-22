@@ -1,52 +1,43 @@
 [gd_scene load_steps=9 format=2]
 
-[sub_resource type="CubeMesh" id=8]
+[ext_resource path="res://Materials/floor.tres" type="Material" id=1]
+[ext_resource path="res://Materials/wall.tres" type="Material" id=2]
+[ext_resource path="res://Materials/beam.tres" type="Material" id=3]
+[ext_resource path="res://Meshes/wallSet_0.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://Meshes/wallSet_1.obj" type="ArrayMesh" id=5]
 
-[sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+[sub_resource type="ConcavePolygonShape" id=30]
+data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, 1, 0, -1, -1, 0, 1, -1, 0, -1, -1, 2, 1, 1, 2, 1, -1, 2, -1, -1, 2, -1, 1, 2, 1, 1, 2, -1 )
 
-[sub_resource type="ConcavePolygonShape" id=2]
-data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+[sub_resource type="NavigationMesh" id=20]
+vertices = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, -1, -1, 2, 1, 1, 2, 1, -1, 2, -1, 1, 2, -1 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 2, 1, 3 ), PoolIntArray( 4, 5, 6 ), PoolIntArray( 6, 5, 7 ) ]
 
-[sub_resource type="NavigationMesh" id=10]
-vertices = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
-polygons = [ PoolIntArray( 0, 2, 4 ), PoolIntArray( 2, 6, 4 ), PoolIntArray( 1, 3, 5 ), PoolIntArray( 3, 7, 5 ), PoolIntArray( 8, 10, 12 ), PoolIntArray( 10, 14, 12 ), PoolIntArray( 9, 11, 13 ), PoolIntArray( 11, 15, 13 ), PoolIntArray( 16, 18, 20 ), PoolIntArray( 18, 22, 20 ), PoolIntArray( 17, 19, 21 ), PoolIntArray( 19, 23, 21 ) ]
-
-[sub_resource type="PlaneMesh" id=9]
-
-[sub_resource type="SpatialMaterial" id=7]
-albedo_color = Color( 0.980392, 0, 0, 1 )
-
-[sub_resource type="ConcavePolygonShape" id=4]
-data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
-
-[sub_resource type="NavigationMesh" id=5]
-vertices = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, -1 )
-polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 1, 3, 2 ) ]
+[sub_resource type="ConcavePolygonShape" id=32]
+data = PoolVector3Array( -1, 0, 0.8, -1, 0, -0.8, -1, 1.8, 0.8, -1, 1.8, 0.8, -1, 0, -0.8, -1, 1.8, -0.8, -0.8, 0, -1, 0.8, 0, -1, -0.8, 1.8, -1, -0.8, 1.8, -1, 0.8, 0, -1, 0.8, 1.8, -1, 0.8, 2, 0.8, -0.8, 2, 0.8, 0.8, 2, -0.8, 0.8, 2, -0.8, -0.8, 2, 0.8, -0.8, 2, -0.8, 1, 0, -0.8, 1, 0, 0.8, 1, 1.8, -0.8, 1, 1.8, -0.8, 1, 0, 0.8, 1, 1.8, 0.8, 0.8, 0, 1, -0.8, 0, 1, 0.8, 1.8, 1, 0.8, 1.8, 1, -0.8, 0, 1, -0.8, 1.8, 1, 0.8, 2, -1, 0.8, 1.8, -1, 1, 2, -1, 1, 2, -1, 0.8, 1.8, -1, 1, 1.8, -1, 1, 2, 0.8, 1, 1.8, 0.8, 1, 2, 1, 1, 2, 1, 1, 1.8, 0.8, 1, 1.8, 1, -1, 2, -0.8, -1, 1.8, -0.8, -1, 2, -1, -1, 2, -1, -1, 1.8, -0.8, -1, 1.8, -1, -0.8, 2, 1, -0.8, 1.8, 1, -1, 2, 1, -1, 2, 1, -0.8, 1.8, 1, -1, 1.8, 1, 1, 2, 1, 1, 1.8, 1, 0.8, 2, 1, 0.8, 2, 1, 1, 1.8, 1, 0.8, 1.8, 1, -1, 1.8, 1, -0.8, 1.8, 1, -1, 0, 1, -1, 0, 1, -0.8, 1.8, 1, -0.8, 0, 1, 1, 2, 0.8, 0.8, 2, 0.8, 1, 2, -0.8, 1, 2, -0.8, 0.8, 2, 0.8, 0.8, 2, -0.8, 1, 2, -0.8, 1, 1.8, -0.8, 1, 2, 0.8, 1, 2, 0.8, 1, 1.8, -0.8, 1, 1.8, 0.8, -1, 2, 1, -1, 1.8, 1, -1, 2, 0.8, -1, 2, 0.8, -1, 1.8, 1, -1, 1.8, 0.8, -1, 2, 0.8, -1, 1.8, 0.8, -1, 2, -0.8, -1, 2, -0.8, -1, 1.8, 0.8, -1, 1.8, -0.8, -0.8, 2, 0.8, -1, 2, 0.8, -0.8, 2, -0.8, -0.8, 2, -0.8, -1, 2, 0.8, -1, 2, -0.8, 1, 2, -1, 1, 1.8, -1, 1, 2, -0.8, 1, 2, -0.8, 1, 1.8, -1, 1, 1.8, -0.8, 0.8, 2, 1, 0.8, 1.8, 1, -0.8, 2, 1, -0.8, 2, 1, 0.8, 1.8, 1, -0.8, 1.8, 1, -1, 2, -1, -1, 1.8, -1, -0.8, 2, -1, -0.8, 2, -1, -1, 1.8, -1, -0.8, 1.8, -1, 0.8, 2, 1, -0.8, 2, 1, 0.8, 2, 0.8, 0.8, 2, 0.8, -0.8, 2, 1, -0.8, 2, 0.8, -0.8, 2, -1, -0.8, 1.8, -1, 0.8, 2, -1, 0.8, 2, -1, -0.8, 1.8, -1, 0.8, 1.8, -1, 0.8, 2, -0.8, -0.8, 2, -0.8, 0.8, 2, -1, 0.8, 2, -1, -0.8, 2, -0.8, -0.8, 2, -1, 1, 1.8, -0.8, 1, 1.8, -1, 1, 0, -0.8, 1, 0, -0.8, 1, 1.8, -1, 1, 0, -1, -0.8, 2, -0.8, -1, 2, -0.8, -0.8, 2, -1, -0.8, 2, -1, -1, 2, -0.8, -1, 2, -1, -0.8, 2, 1, -1, 2, 1, -0.8, 2, 0.8, -0.8, 2, 0.8, -1, 2, 1, -1, 2, 0.8, 1, 2, -1, 1, 2, -0.8, 0.8, 2, -1, 0.8, 2, -1, 1, 2, -0.8, 0.8, 2, -0.8, 1, 2, 1, 0.8, 2, 1, 1, 2, 0.8, 1, 2, 0.8, 0.8, 2, 1, 0.8, 2, 0.8, 0.8, 1.8, 1, 1, 1.8, 1, 0.8, 0, 1, 0.8, 0, 1, 1, 1.8, 1, 1, 0, 1, -1, 1.8, -1, -1, 1.8, -0.8, -1, 0, -1, -1, 0, -1, -1, 1.8, -0.8, -1, 0, -0.8, 1, 1.8, -1, 0.8, 1.8, -1, 1, 0, -1, 1, 0, -1, 0.8, 1.8, -1, 0.8, 0, -1, 1, 1.8, 1, 1, 1.8, 0.8, 1, 0, 1, 1, 0, 1, 1, 1.8, 0.8, 1, 0, 0.8, -0.8, 1.8, -1, -1, 1.8, -1, -0.8, 0, -1, -0.8, 0, -1, -1, 1.8, -1, -1, 0, -1, -1, 1.8, 0.8, -1, 1.8, 1, -1, 0, 0.8, -1, 0, 0.8, -1, 1.8, 1, -1, 0, 1 )
 
 [node name="Spatial" type="Spatial"]
 
-[node name="Wall" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0 )
-mesh = SubResource( 8 )
-material/0 = SubResource( 6 )
+[node name="wallSet_0" type="MeshInstance" parent="."]
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 1 )
+material/1 = ExtResource( 2 )
 
-[node name="StaticBody" type="StaticBody" parent="Wall"]
+[node name="StaticBody" type="StaticBody" parent="wallSet_0"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Wall/StaticBody"]
-shape = SubResource( 2 )
+[node name="CollisionShape" type="CollisionShape" parent="wallSet_0/StaticBody"]
+shape = SubResource( 30 )
 
-[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Wall"]
-navmesh = SubResource( 10 )
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="wallSet_0"]
+navmesh = SubResource( 20 )
 
-[node name="Path" type="MeshInstance" parent="."]
-mesh = SubResource( 9 )
-material/0 = SubResource( 7 )
+[node name="wallSet_1" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 3 )
 
-[node name="StaticBody" type="StaticBody" parent="Path"]
+[node name="StaticBody" type="StaticBody" parent="wallSet_1"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Path/StaticBody"]
-shape = SubResource( 4 )
-
-[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Path"]
-navmesh = SubResource( 5 )
+[node name="CollisionShape" type="CollisionShape" parent="wallSet_1/StaticBody"]
+shape = SubResource( 32 )

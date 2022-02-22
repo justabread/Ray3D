@@ -7,14 +7,30 @@ var size = 25
 var steps = 300
 
 var player
+var enemy
 var playerSpawned: bool = false
+var enemySpawned: bool = false
 var playerScene = load("res://Scenes/Player.tscn")
+var enemyScene = load("res://Scenes/Enemy.tscn")
 
+onready var Nav = $Navigation
 onready var Map = $Navigation/NavigationMeshInstance/GridMap as GridMap
 
 func _ready():
 	randomize()
 	make_maze()
+	
+func spawnPlayer(current_pos):
+	player = playerScene.instance() as Spatial
+	player.transform.origin = Map.map_to_world(current_pos.x, 0, current_pos.y)
+	add_child(player)
+	playerSpawned = true
+		
+func spawnEnemy(current_pos):
+	enemy = enemyScene.instance() as Position3D
+	enemy.transform.origin = Map.map_to_world(current_pos.x, 0, current_pos.y)
+	Nav.add_child(enemy)
+	enemySpawned = true
 	
 func make_maze():
 #	var unvisited = []
@@ -45,7 +61,7 @@ func make_maze():
 	#Fill map with cubes
 	for x in range(size+1):
 		for z in range(size+1):
-			Map.set_cell_item(x,0,z,0)
+			Map.set_cell_item(x,0,z,1)
 	
 	var current_pos = Vector2(size / 2,size / 2)
 	var current_dir = Vector2.RIGHT
@@ -59,9 +75,8 @@ func make_maze():
 			temp_dir.shuffle()
 			d = temp_dir.pop_front()
 		current_pos += d
-		Map.set_cell_item(current_pos.x, 0, current_pos.y, 1)
+		Map.set_cell_item(current_pos.x, 0, current_pos.y, 0)
 		if(!playerSpawned):
-			player = playerScene.instance() as Spatial
-			player.transform.origin = Map.map_to_world(current_pos.x, 0, current_pos.y)
-			add_child(player)
-			playerSpawned = true
+			spawnPlayer(current_pos)
+	spawnEnemy(current_pos)
+

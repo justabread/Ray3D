@@ -11,14 +11,14 @@ var gravity = 12.0
 #camera
 var minLookAngle = -90.0
 var maxLookAngle = 90.0
-var lookSensitivity = 25.0
+var lookSensitivity = 0.1
 
 #vectors
 var velocity = Vector3()
 var mouseDelta = Vector2()
 
-onready var camera = $Camera
-onready var flashlight = $Camera/flashlight/SpotLight
+onready var head = $Head
+onready var flashlight = $Head/Camera/flashlight/SpotLight
 var isLightOff = false
 
 func _ready():
@@ -56,18 +56,12 @@ func _physics_process(delta):
 	
 	#movement
 	velocity = move_and_slide(velocity, Vector3.UP)
-
-func _process(delta):
-	camera.rotation_degrees.x -= mouseDelta.y * lookSensitivity * delta
-	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, minLookAngle, maxLookAngle)
-	
-	rotation_degrees.y -= mouseDelta.x * lookSensitivity * delta
-	
-	mouseDelta = Vector2()
 	
 func _input(event):
 	if event is InputEventMouseMotion:
-		mouseDelta = event.relative
+		rotate_y(deg2rad(-event.relative.x * lookSensitivity))
+		head.rotate_x(deg2rad(-event.relative.y * lookSensitivity))
+		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
 		
 	if event.is_action_pressed("act_lightOff"):
 		if isLightOff:

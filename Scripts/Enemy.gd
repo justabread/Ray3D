@@ -1,6 +1,6 @@
 extends Navigation
 
-onready var agent = get_node("Spatial") as Spatial
+onready var agent = get_node("Enemy") as Spatial
 onready var player = get_node("../Player") as KinematicBody
 
 var timer = 0
