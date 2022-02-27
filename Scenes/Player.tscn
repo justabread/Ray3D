@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Materials/plastic.tres" type="Material" id=1]
 [ext_resource path="res://Meshes/flashlight.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://Scripts/player.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.298041

@@ -9,13 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Spatial",
-"class": "Enemy",
+"base": "KinematicBody",
+"class": "Player",
 "language": "GDScript",
-"path": "res://Scripts/Enemy.gd"
+"path": "res://Scripts/Player.gd"
 } ]
 _global_script_class_icons={
-"Enemy": ""
+"Player": ""
 }
 
 [application]
