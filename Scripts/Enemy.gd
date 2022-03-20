@@ -104,7 +104,7 @@ func checkNeighbors(playerPosGrid):
 	var list = []
 	for i in dirVectors.keys():
 		var newDir = playerPosGrid + dirVectors[i]
-		if gridMap.get_cell_item(newDir.x, newDir.y, newDir.z) == 0:
+		if (gridMap.get_cell_item(newDir.x, newDir.y, newDir.z) != 15) or (gridMap.get_cell_item(newDir.x, newDir.y, newDir.z) != -1):
 			list.append(newDir)
 			
 	return list
