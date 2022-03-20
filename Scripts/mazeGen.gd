@@ -1,10 +1,10 @@
 extends Spatial
 
-
 const N = 1
 const E = 2
 const S = 4
 const W = 8
+
 const DIR = {
 	Vector3(0,0,-1): N,
 	Vector3(1,0,0): E,
@@ -79,6 +79,8 @@ func make_maze():
 			Map.set_cell_item(next.x, next.y, next.z, next_walls)
 			current = next
 			unvisited.erase(current)
+			if current_walls != 15:
+				freeTiles.append(current)
 		elif stack:
 			current = stack.pop_back()
 	spawnEnemy(current)
