@@ -34,3 +34,40 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
+
+[node name="HUDCanvas" type="CanvasLayer" parent="."]
+
+[node name="HUDControl" type="Control" parent="HUDCanvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DetectionLabel" type="Label" parent="HUDCanvas/HUDControl"]
+anchor_right = 0.0390625
+anchor_bottom = 0.0233333
+text = "###"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AggressionLabel" type="Label" parent="HUDCanvas/HUDControl"]
+anchor_top = 0.0233333
+anchor_right = 0.0722656
+anchor_bottom = 0.0466667
+margin_right = -34.0
+text = "Enemy Aggression:"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AggresionValue" type="Label" parent="HUDCanvas/HUDControl/AggressionLabel"]
+margin_left = 124.0
+margin_top = 1.0
+margin_right = 152.0
+margin_bottom = 15.0
+text = "###"
+__meta__ = {
+"_edit_use_anchors_": false
+}

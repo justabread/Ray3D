@@ -19,7 +19,6 @@ onready var head = $Head
 onready var flashlight = $Head/Camera/flashlight/SpotLight
 onready var lightRay = $Head/Camera/flashlight/RayCast
 var isLightOff = false
-var canEnemyRespawn = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -70,5 +69,4 @@ func _input(event):
 		else:
 			flashlight.light_energy = 0.0
 			isLightOff = true
-			canEnemyRespawn = true
 
